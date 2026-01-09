@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # 로컬/원격 경로만 교체 (나머지 로직 유지)
-KEY_PATH="경로를 입력하세요"              # 예: /home/admin/KoBERT_ws/src/ssh-key-2024-09-22.key
-LOCAL_BASE="경로를 입력하세요"            # 예: /home/admin/KoBERT_ws/src
-REMOTE_BASE="경로를 입력하세요"           # 예: /home/ubuntu
+KEY_PATH="path to key"              # 예: /home/admin/KoBERT_ws/src/ssh-key-2024-09-22.key
+LOCAL_BASE="path to local"            # 예: /home/admin/KoBERT_ws/src
+REMOTE_BASE="path to remote"           # 예: /home/ubuntu
 REMOTE_USER="ubuntu"
 REMOTE_HOST="146.56.111.104"
 
