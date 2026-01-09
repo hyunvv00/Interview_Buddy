@@ -1,6 +1,5 @@
 #!/bin/bash
 
-# 로컬/원격 경로만 교체 (나머지 로직 유지)
 KEY_PATH="path to key"              # 예: /home/admin/KoBERT_ws/src/ssh-key-2024-09-22.key
 LOCAL_BASE="path to local"            # 예: /home/admin/KoBERT_ws/src
 REMOTE_BASE="path to remote"           # 예: /home/ubuntu
