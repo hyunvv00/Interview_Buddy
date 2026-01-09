@@ -1,8 +1,8 @@
 #!/bin/bash
 
-KEY_PATH="path to key"              # 예: /home/admin/KoBERT_ws/src/ssh-key-2024-09-22.key
-LOCAL_BASE="path to local"            # 예: /home/admin/KoBERT_ws/src
-REMOTE_BASE="path to remote"           # 예: /home/ubuntu
+KEY_PATH="path to key"              # ex: /home/admin/KoBERT_ws/src/ssh-key-2024-09-22.key
+LOCAL_BASE="path to local"            # ex: /home/admin/KoBERT_ws/src
+REMOTE_BASE="path to remote"           # ex: /home/ubuntu
 REMOTE_USER="ubuntu"
 REMOTE_HOST="146.56.111.104"
 
