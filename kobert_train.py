@@ -30,10 +30,10 @@ def extract_input_question_pairs(json_root):
                     input_text = f"{gender} {occupation} {experience} {age}"
                     rows.append([input_text, question])
                 except Exception as e:
-                    print(f"⚠️ 오류 in {file}: {e}")
+                    print(f"오류 in {file}: {e}")
     df = pd.DataFrame(rows, columns=["input_text", "question"])
     df.to_csv("question_generation_dataset.csv", index=False)
-    print(f"✅ 질문 생성용 CSV 저장 완료: question_generation_dataset.csv ({len(df)}개 질문)")
+    print(f"질문 생성용 CSV 저장 완료: question_generation_dataset.csv ({len(df)}개 질문)")
 
 def json_to_dataframe(json_root):
     rows = []
@@ -53,13 +53,13 @@ def json_to_dataframe(json_root):
                     experience = info.get("experience", "UNKNOWN")
                     rows.append([answer, intent, emotion, occupation, gender, age, experience])
                 except Exception as e:
-                    print(f"⚠️ 오류 in {file}: {e}")
+                    print(f"오류 in {file}: {e}")
     df = pd.DataFrame(rows, columns=[
         "text", "label_intent", "label_emotion",
         "occupation", "gender", "ageRange", "experience"
     ])
     df.to_csv("kobert_multi_dataset.csv", index=False)
-    print(f"✅ 분석용 KoBERT CSV 저장 완료: kobert_multi_dataset.csv ({len(df)}개 샘플)")
+    print(f"분석용 KoBERT CSV 저장 완료: kobert_multi_dataset.csv ({len(df)}개 샘플)")
     return df
 
 class MultiOutputKoBERT(nn.Module):
@@ -142,14 +142,14 @@ def train_multitask_kobert():
             total_loss += loss.item()
             loop.set_postfix(loss=loss.item())
 
-        print(f"\n✅ Epoch {epoch+1} 완료 | 총 Loss: {total_loss:.4f}")
+        print(f"\n Epoch {epoch+1} 완료 | 총 Loss: {total_loss:.4f}")
 
     save_path = "./runs"
     os.makedirs(save_path, exist_ok=True)
     torch.save(model.state_dict(), os.path.join(save_path, "model.pt"))
     tokenizer.save_pretrained(save_path)
     torch.save({"intent": le_intent, "emotion": le_emotion}, os.path.join(save_path, "label_encoders.pt"))
-    print(f"\n🎉 학습 완료! 모델이 저장되었습니다: {save_path}")
+    print(f"\n 학습 완료! 모델이 저장되었습니다: {save_path}")
 
 if __name__ == "__main__":
     extract_input_question_pairs(JSON_ROOT)   
