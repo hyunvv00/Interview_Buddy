@@ -113,14 +113,14 @@ def get_grade_and_feedback(score_result):
     elif total >= 60: grade = "D"
     else: grade = "F"
     feedback = []
-    if total >= 85: feedback.append("🎉 우수한 답변입니다!")
-    elif total >= 70: feedback.append("👍 양호한 답변입니다.")
-    else: feedback.append("💪 개선이 필요한 답변입니다.")
-    if word_count < 20: feedback.append("📝 답변이 너무 짧습니다. 더 구체적으로 작성해보세요.")
-    elif word_count > 150: feedback.append("✂️ 답변이 너무 깁니다. 핵심 위주로 요약하세요.")
-    else: feedback.append("📏 적절한 답변 길이입니다.")
-    if intent_score >= 25: feedback.append("🎯 답변 의도가 잘 표현되었습니다.")
-    else: feedback.append("🔄 답변의 의도를 더 명확하게 표현해보세요.")
+    if total >= 85: feedback.append("우수한 답변입니다!")
+    elif total >= 70: feedback.append("양호한 답변입니다.")
+    else: feedback.append("개선이 필요한 답변입니다.")
+    if word_count < 20: feedback.append("답변이 너무 짧습니다. 더 구체적으로 작성해보세요.")
+    elif word_count > 150: feedback.append("답변이 너무 깁니다. 핵심 위주로 요약하세요.")
+    else: feedback.append("적절한 답변 길이입니다.")
+    if intent_score >= 25: feedback.append("답변 의도가 잘 표현되었습니다.")
+    else: feedback.append("답변의 의도를 더 명확하게 표현해보세요.")
     return grade, feedback
 
 def summarize_text(text):
