@@ -1,31 +1,35 @@
 #!/bin/bash
 
-echo " " | sudo -S chmod 600 /home/wego/KoBERT_ws/src/ssh-key-2024-09-22.key
+# 로컬/원격 경로만 교체 (나머지 로직 유지)
+KEY_PATH="경로를 입력하세요"              # 예: /home/admin/KoBERT_ws/src/ssh-key-2024-09-22.key
+LOCAL_BASE="경로를 입력하세요"            # 예: /home/admin/KoBERT_ws/src
+REMOTE_BASE="경로를 입력하세요"           # 예: /home/ubuntu
+REMOTE_USER="ubuntu"
+REMOTE_HOST="146.56.111.104"
 
-ssh -i /home/wego/KoBERT_ws/src/ssh-key-2024-09-22.key ubuntu@146.56.111.104 "sudo chown ubuntu:ubuntu /home/ubuntu/*"
+echo " " | sudo -S chmod 600 "$KEY_PATH"
+
+ssh -i "$KEY_PATH" ${REMOTE_USER}@${REMOTE_HOST} "sudo chown ubuntu:ubuntu ${REMOTE_BASE}/*"
 
 while true
 do
-    scp -i /home/wego/KoBERT_ws/src/ssh-key-2024-09-22.key ubuntu@146.56.111.104:/home/ubuntu/user/* /home/wego/KoBERT_ws/src/user/
+    scp -i "$KEY_PATH" ${REMOTE_USER}@${REMOTE_HOST}:${REMOTE_BASE}/user/* "${LOCAL_BASE}/user/"
 
-    python3 /home/wego/KoBERT_ws/src/kobert_question.py
+    python3 "${LOCAL_BASE}/kobert_question.py"
     
-    scp -i /home/wego/KoBERT_ws/src/ssh-key-2024-09-22.key /home/wego/KoBERT_ws/src/question/* ubuntu@146.56.111.104:/home/ubuntu/question/
+    scp -i "$KEY_PATH" "${LOCAL_BASE}/question/*" ${REMOTE_USER}@${REMOTE_HOST}:${REMOTE_BASE}/question/
 
-    scp -i /home/wego/KoBERT_ws/src/ssh-key-2024-09-22.key ubuntu@146.56.111.104:/home/ubuntu/answer/* /home/wego/KoBERT_ws/src/answer/
+    scp -i "$KEY_PATH" ${REMOTE_USER}@${REMOTE_HOST}:${REMOTE_BASE}/answer/* "${LOCAL_BASE}/answer/"
 
 
-    python3 /home/wego/KoBERT_ws/src/kobert_result.py
+    python3 "${LOCAL_BASE}/kobert_result.py"
     
-    scp -i /home/wego/KoBERT_ws/src/ssh-key-2024-09-22.key /home/wego/KoBERT_ws/src/result/* ubuntu@146.56.111.104:/home/ubuntu/result/
+    scp -i "$KEY_PATH" "${LOCAL_BASE}/result/*" ${REMOTE_USER}@${REMOTE_HOST}:${REMOTE_BASE}/result/
 
-    rm -rf /home/wego/KoBERT_ws/src/script/user/*
-    rm -rf /home/wego/KoBERT_ws/src/script/question/*
-    rm -rf /home/wego/KoBERT_ws/src/script/answer/*
-    rm -rf /home/wego/KoBERT_ws/src/script/result/*
+    rm -rf "${LOCAL_BASE}/script/user/*"
+    rm -rf "${LOCAL_BASE}/script/question/*"
+    rm -rf "${LOCAL_BASE}/script/answer/*"
+    rm -rf "${LOCAL_BASE}/script/result/*"
 
     sleep 10
 done
-
-    # scp -i /home/wego/KoBERT_ws/src/ssh-key-2024-09-22.key /home/wego/KoBERT_ws/src/script/user/ ubuntu@146.56.111.104:/home/ubuntu/user/
-    # scp -i /home/wego/KoBERT_ws/src/ssh-key-2024-09-22.key /home/wego/KoBERT_ws/src/script/answer/ ubuntu@146.56.111.104:/home/ubuntu/answer/
