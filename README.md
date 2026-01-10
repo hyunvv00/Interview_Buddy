@@ -94,9 +94,7 @@ python3 kobert_val.py \
  
 ---
 <details>
-<summary>모델 정보 펼치기</summary>
-  
-## 사용자 정보
+<summary>사용자 정보</summary>
 
 ```json
 {
@@ -108,6 +106,7 @@ python3 kobert_val.py \
   "experience": "Experienced"
 }
 ```
+ </details>
  
 ---
 
@@ -205,5 +204,5 @@ python3 kobert_val.py \
   }
 }
 ```
-</details>
+
 ---
