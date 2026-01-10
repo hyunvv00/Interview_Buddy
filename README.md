@@ -46,8 +46,8 @@ Interview_Buddy/
 - AIHub '채용면접 인터뷰 데이터셋을 정제해 KoBERT 분류기를 학습합니다. 
 ```
 python3 kobert_train.py 
-    -- train_csv 정제된_학습데이터.csv \
-    -- val_csv   정제된_검증데이터.csv \
+    -- train_csv 정제된_학습데이터.csv 
+    -- val_csv   정제된_검증데이터.csv 
     -- kobert_model.pth
 ```
 
@@ -56,8 +56,8 @@ python3 kobert_train.py
 ## 검증 & 추론
 ```
 python3 kobert_val.py 
-    -- kobert_model.pth \
-    -- eval_csv 평가데이터.csv \
+    -- kobert_model.pth 
+    -- eval_csv 평가데이터.csv 
     -- output_csv 예측결과.csv
 ```
 
