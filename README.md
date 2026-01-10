@@ -93,6 +93,11 @@ python3 kobert_val.py \
   - 피드백 생성 → result/ 폴더 저장
  
 ---
+
+## 어노테이션 포맷
+
+JSON 포맷입니다.
+
 <details>
 <summary> ### 사용자 정보 ### </summary>
 
