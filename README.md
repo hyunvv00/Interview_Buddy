@@ -47,24 +47,9 @@ Interview_Buddy/
 
 ---
 
-## 요구사항
-
-- Python / KoBERT:
-  - Python 3.8+
-  - PyTorch (KoBERT 호환 버전)
-  - KoBERT 패키지: transformers, gluonnlp
-  - 기타: numpy, pandas, scikit-learn 
-
-- Bash 자동화:
-  - Linux + bash, ssh, scp
-  - SSH 키 인증 (비밀번호 없이 접속)
-
----
-
-## KoBERT 모델 학습
-
+## 빠른 시작
+### 1. KoBERT 모델 학습
 AIHub '채용면접 인터뷰 데이터셋을 정제해 KoBERT 분류기를 학습합니다. 
-
 ```text
 python3 kobert_train.py \
     -- train_csv 정제된_학습데이터.csv \
@@ -72,10 +57,7 @@ python3 kobert_train.py \
     -- kobert_model.pth
 ```
 
----
-
-## 검증 & 추론
-
+### 2. 검증 & 추론
 ```text
 python3 kobert_val.py \
     -- kobert_model.pth \
