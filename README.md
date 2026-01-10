@@ -94,9 +94,9 @@ python3 kobert_val.py \
  
 ---
 
-## 사용자 정보.json
+## 사용자 정보
 
-```text
+```json
 {
   "occupation": "BM",
   "channel": "MOCK",
@@ -109,9 +109,9 @@ python3 kobert_val.py \
  
 ---
 
-## 사용자 질문.json
+## 사용자 질문
 
-```text
+```json
 {
   "user_info": {
     "occupation": "BM",
@@ -129,9 +129,9 @@ python3 kobert_val.py \
  
 ---
 
-## 사용자 답변.json
+## 사용자 답변
 
-```text
+```json
 {
   "user_info": {
     "occupation": "BM",
@@ -155,9 +155,9 @@ python3 kobert_val.py \
  
 ---
 
-## 사용자 결과.json
+## 사용자 결과
 
-```text
+```json
 {
   "user_info": {
     "occupation": "BM",
