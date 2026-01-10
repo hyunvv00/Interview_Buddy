@@ -42,6 +42,7 @@ Interview_Buddy/
 ```
 
 ## 요구사항
+
 - Python / KoBERT:
   - Python 3.8+
   - PyTorch (KoBERT 호환 버전)
@@ -73,6 +74,7 @@ python3 kobert_val.py \
     -- eval_csv 평가데이터.csv \
     -- output_csv 예측결과.csv
 ```
+
 ## 인터뷰 파이프라인
 
 - 질문 생성 (kobert_question.py):
@@ -83,3 +85,107 @@ python3 kobert_val.py \
   - answer/ 폴더에서 사용자 답변 로드
   - KoBERT 추론 (라벨/점수 산출)
   - 피드백 생성 → result/ 폴더 저장
+ 
+## 사용자 정보.json
+
+```text
+{
+  "occupation": "BM",
+  "channel": "MOCK",
+  "place": "ONLINE",
+  "gender": "Female",
+  "ageRange": "-34",
+  "experience": "Experienced"
+}
+```
+ 
+## 사용자 질문.json
+
+```text
+{
+  "user_info": {
+    "occupation": "BM",
+    "channel": "MOCK",
+    "place": "ONLINE",
+    "gender": "Female",
+    "ageRange": "-34",
+    "experience": "Experienced"
+  },
+  "question": {
+    "text": "지원한 직무와 관련돼서 특별하게 노력한 게 있다면 말씀해 보시겠습니까."
+  }
+}
+```
+ 
+## 사용자 답변.json
+
+```text
+{
+  "user_info": {
+    "occupation": "BM",
+    "channel": "MOCK",
+    "place": "ONLINE",
+    "gender": "Female",
+    "ageRange": "-34",
+    "experience": "Experienced"
+  },
+  "question": {
+    "text": "구성원들과 갈등이 생긴다면 보통 어떻게 해결하실까요"
+  },
+  "user_answer": 
+  [
+    {
+    "text": "네 답변 드리겠습니다. 저는 구성원들과의 갈등을 최대한 만들지 않으려고 노력하지만 필요할 때는 그 갈등을 좀 더 해결을 해 보려고 노력합니다. 제가 갈등을 해결하는 방식은 처음엔 저의 의견을 논리적으로 설명을 하고 어 상대방이 그것을 좀 더 파악할 수 파악하고 순응할 수 있도록 최선을 다하는 것입니다. 그런데 제 의견이 논리적으로 타당하지 않다를 상대방이 주장한다면 그 의견을 들어보고 제가 맞다고 판단이 되면 그 의견에도 저는 수용을 빨리 하는 편입니다."
+    }
+  ]
+}
+```
+ 
+## 사용자 결과.json
+
+```text
+{
+  "user_info": {
+    "occupation": "BM",
+    "channel": "MOCK",
+    "place": "ONLINE",
+    "gender": "Female",
+    "ageRange": "-34",
+    "experience": "Experienced"
+  },
+  "question": "구성원들과 갈등이 생긴다면 보통 어떻게 해결하실까요",
+  "user_answer": "네 답변 드리겠습니다. 저는 구성원들과의 갈등을 최대한 만들지 않으려고 노력하지만 필요할 때는 그 갈등을 좀 더 해결을 해 보려고 노력합니다. 제가 갈등을 해결하는 방식은 처음엔 저의 의견을 논리적으로 설명을 하고 어 상대방이 그것을 좀 더 파악할 수 파악하고 순응할 수 있도록 최선을 다하는 것입니다. 그런데 제 의견이 논리적으로 타당하지 않다를 상대방이 주장한다면 그 의견을 들어보고 제가 맞다고 판단이 되면 그 의견에도 저는 수용을 빨리 하는 편입니다.",
+  "recommended_answer": "네 답변 드리겠습니다. 저는 구성원들과의 갈등을 최대한 만들지 않으려고 노력하지만 필요할 때는 그 갈등을 좀 더 해결을 해 보려고 노력합니다. 제가 갈등을 해결하는 방식은 처음엔 저의 의견을 논리적으로 설명을 하고 어 상대방이 그것을 좀 더 파악할 수 파악하고 순응할 수 있도록 최선을 다하는 것입니다. 그런데 제 의견이 논리적으로 타당하지 않다를 상대방이 주장한다면 그 의견을 들어보고 제가 맞다고 판단이 되면 그 의견에도 저는 수용을 빨리 하는 편입니다.",
+  "score_result": {
+    "total": 75,
+    "intent": 10,
+    "emotion": 15,
+    "length": 25,
+    "quality": 25,
+    "breakdown": {
+      "word_count": 66,
+      "pred_intent": "attitude",
+      "gt_intent": "background",
+      "pred_emotion": "positive",
+      "gt_emotion": ""
+    }
+  },
+  "grade": "C",
+  "feedback": [
+    "양호한 답변입니다.",
+    "적절한 답변 길이입니다.",
+    "답변의 의도를 더 명확하게 표현해보세요."
+  ],
+  "summary": ".              .",
+  "analysis": {
+    "pred_emotion": "positive",
+    "pred_emotion_kor": "긍정",
+    "gt_emotion": "",
+    "gt_emotion_kor": "",
+    "pred_intent": "attitude",
+    "pred_intent_kor": "태도",
+    "gt_intent": "background",
+    "gt_intent_kor": "배경"
+  }
+}
+```
