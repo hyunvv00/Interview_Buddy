@@ -93,7 +93,9 @@ python3 kobert_val.py \
   - 피드백 생성 → result/ 폴더 저장
  
 ---
-
+<details>
+<summary>모델 정보 펼치기</summary>
+  
 ## 사용자 정보
 
 ```json
@@ -203,5 +205,5 @@ python3 kobert_val.py \
   }
 }
 ```
-
+</details>
 ---
