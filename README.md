@@ -31,6 +31,18 @@ Interview Buddy는 AI 허브의 '채용면접 인터뷰 데이터셋(AIHub 데�
 
 ---
 
+## 디렉터리 구조
+
+```text
+Interview_Buddy/
+├── kobert_train.py         # KoBERT 학습 (AIHub 데이터셋 정제 → 모델 학습)
+├── kobert_val.py           # KoBERT 검증/추론
+├── kobert_question.py      # 인터뷰 질문 생성/전달
+├── kobert_result.py        # 답변 평가 → 피드백 생성
+├── kobert_execution.bash   # 원격-로컬 연동 + 전체 파이프라인 자동화
+└── data/                   # 데이터셋
+```
+
 ## 요구사항
 - Python / KoBERT:
   - Python 3.8+
@@ -44,13 +56,13 @@ Interview Buddy는 AI 허브의 '채용면접 인터뷰 데이터셋(AIHub 데�
 
 ---
 
-## 디렉터리 구조
+## KoBERT 모델 학습
+
+AIHub '채용면접 인터뷰 데이터셋을 정제해 KoBERT 분류기를 학습합니다. 
 
 ```text
-Interview_Buddy/
-├── kobert_train.py         # KoBERT 학습 (AIHub 데이터셋 정제 → 모델 학습)
-├── kobert_val.py           # KoBERT 검증/추론
-├── kobert_question.py      # 인터뷰 질문 생성/전달
-├── kobert_result.py        # 답변 평가 → 피드백 생성
-├── kobert_execution.bash   # 원격-로컬 연동 + 전체 파이프라인 자동화
+python3 kobert_train.py \
+    --train_csv 정제된_학습데이터.csv \
+    --val_csv   정제된_검증데이터.csv \
+    --model_save_path interview_kobert_model.pth
 └── data/                   # 데이터셋
