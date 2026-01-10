@@ -94,7 +94,7 @@ python3 kobert_val.py \
  
 ---
 <details>
-<summary> ### 사용자 정보</summary>
+<summary> ### 사용자 정보 ### </summary>
 
 ```json
 {
@@ -109,7 +109,7 @@ python3 kobert_val.py \
  </details>
 
 <details>
-<summary> ### 사용자 질문</summary>
+<summary> ### 사용자 질문 ### </summary>
 
 ```json
 {
@@ -129,7 +129,7 @@ python3 kobert_val.py \
 </details>
 
 <details>
-<summary> ## 사용자 답변</summary>
+<summary> ### 사용자 답변 ### </summary>
 
 ```json
 {
@@ -155,7 +155,7 @@ python3 kobert_val.py \
 </details>
  
 <details>
-<summary> ## 사용자 결과</summary>
+<summary> ### 사용자 결과 ### </summary>
 
 ```json
 {
