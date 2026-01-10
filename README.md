@@ -65,12 +65,15 @@ python3 kobert_val.py
 
 ## 파이프라인
 ```
-질문 풀에서 인터뷰 질문을 선택 → question/ 폴더에 저장 → 원격 전송answer/ 폴더에서 사용자 답변 로드 → KoBERT 추론 (라벨/점수 산출) → 피드백 생성 → result/ 폴더 저장
+질문 풀에서 인터뷰 질문을 선택 → question/ 폴더에 저장 → 원격 전송 → answer/ 폴더에서 사용자 답변 로드 → KoBERT 추론 (라벨/점수 산출) → 피드백 생성 → result/ 폴더 저장
 ```
 
 ---
 
 ## 질문 생성
+> 질문 풀에서 인터뷰 질문을 선택
+> question/ 폴더에 저장
+> 원격 전송
 ```
 python3 kobert_question.py
 ```
@@ -78,6 +81,10 @@ python3 kobert_question.py
 ---
 
 ## 답변 평가
+> answer/ 폴더에서 사용자 답변 로드
+> KoBERT 추론 (라벨/점수 산출)
+> 피드백 생성
+> result/ 폴더 저장
 ```
 python3 kobert_result.py
 ```
