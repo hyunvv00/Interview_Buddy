@@ -41,6 +41,8 @@ Interview_Buddy/
 └── data/                   # 데이터셋
 ```
 
+---
+
 ## 요구사항
 
 - Python / KoBERT:
@@ -66,6 +68,8 @@ python3 kobert_train.py \
     -- kobert_model.pth
 ```
 
+---
+
 ## 검증 & 추론
 
 ```text
@@ -74,6 +78,8 @@ python3 kobert_val.py \
     -- eval_csv 평가데이터.csv \
     -- output_csv 예측결과.csv
 ```
+
+---
 
 ## 인터뷰 파이프라인
 
@@ -86,6 +92,8 @@ python3 kobert_val.py \
   - KoBERT 추론 (라벨/점수 산출)
   - 피드백 생성 → result/ 폴더 저장
  
+---
+
 ## 사용자 정보.json
 
 ```text
@@ -99,6 +107,8 @@ python3 kobert_val.py \
 }
 ```
  
+---
+
 ## 사용자 질문.json
 
 ```text
@@ -117,6 +127,8 @@ python3 kobert_val.py \
 }
 ```
  
+---
+
 ## 사용자 답변.json
 
 ```text
@@ -189,3 +201,5 @@ python3 kobert_val.py \
   }
 }
 ```
+
+---
