@@ -62,7 +62,26 @@ AIHub '채용면접 인터뷰 데이터셋을 정제해 KoBERT 분류기를 학�
 
 ```text
 python3 kobert_train.py \
-    --train_csv 정제된_학습데이터.csv \
-    --val_csv   정제된_검증데이터.csv \
-    --model_save_path interview_kobert_model.pth
-└── data/                   # 데이터셋
+    -- train_csv 정제된_학습데이터.csv \
+    -- val_csv   정제된_검증데이터.csv \
+    -- kobert_model.pth
+```
+
+## 검증 & 추론
+
+```text
+python3 kobert_val.py \
+    -- kobert_model.pth \
+    -- eval_csv 평가데이터.csv \
+    -- output_csv 예측결과.csv
+```
+## 인터뷰 파이프라인
+
+- 질문 생성 (kobert_question.py):
+  - 질문 풀에서 인터뷰 질문을 선택
+  - question/ 폴더에 저장 → 원격 전송
+
+- 답변 평가 (kobert_result.py):
+  - answer/ 폴더에서 사용자 답변 로드
+  - KoBERT 추론 (라벨/점수 산출)
+  - 피드백 생성 → result/ 폴더 저장
