@@ -1,6 +1,6 @@
 # Interview Buddy – KoBERT 기반 인터뷰 AI
 
-https://github.com/user-attachments/assets/452dc6d1-9fb2-4800-8550-915dec199aac
+https://github.com/user-attachments/assets/3dc73856-343e-473d-ab89-2d02eadf8fd9
 
 Interview Buddy는 AI 허브의 '채용면접 인터뷰 데이터셋(AIHub 데이터셋 SN: 71592)을 활용해 KoBERT 언어 모델을 학습한 인터뷰 평가 시스템입니다.  
 실제 채용면접 환경의 질문·답변 텍스트 원천 데이터를 전처리/정제하여 한국어 KoBERT를 인터뷰 답변 분류/평가 특화 모델로 파인튜닝한 프로젝트입니다.
